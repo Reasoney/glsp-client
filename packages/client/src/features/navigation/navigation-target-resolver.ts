@@ -122,6 +122,9 @@ export class NavigationTargetResolver {
     }
 
     async resolveWithSourceUri(sourceUri: string | undefined, target: NavigationTarget): Promise<SetResolvedNavigationTargetAction | undefined> {
+        console.log("Log URI:");
+        console.log("SourceURI: ", sourceUri);
+        console.log("TargetURI:", target.uri);
         if (sourceUri && sourceUri !== target.uri && `file://${sourceUri}` !== target.uri) {
             // different URI, so we can't resolve it locally
             return undefined;
